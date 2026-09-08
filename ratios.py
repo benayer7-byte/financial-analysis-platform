@@ -3,11 +3,14 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
+company_name = "Apple"
+ticker = "AAPL"
+csv_path = f"data/raw/{ticker.lower()}.csv"
+excel_path = f"data/processed/{ticker.lower()}_info.xlsx"
 
 
 
-
-df = pd.read_csv('data/raw/apple.csv') 
+df = pd.read_csv(csv_path) 
 
 #All ratios are calculated using the following formulas:
 df["current_Ratio"] = df['current_assets'] / df['current_liabilities']
@@ -44,13 +47,13 @@ for ratio in ["Net Profit Margin", "Return on Assets (ROA)", "Return on Equity (
     ratio_table.loc[ratio] = ratio_table.loc[ratio]*100
 ratio_table = ratio_table.round(2)
 
-ratio_table.to_excel("data/processed/apple_info.xlsx", sheet_name="Apple Ratios")
+ratio_table.to_excel(excel_path, sheet_name=f"{company_name} Ratios")
 
 # Load the existing Excel file
-wb = load_workbook("data/processed/apple_info.xlsx")
+wb = load_workbook(excel_path)
 ws = wb.active
 
-ws.title = "Apple Ratios"
+ws.title = f"{company_name} Ratios"
 for column in ws.columns:
 
     max_length = 0
@@ -62,7 +65,7 @@ for column in ws.columns:
     ws.column_dimensions[column_letter].width = max_length + 2
 
 #A1 adjustments and formatting 
-ws["A1"] = "Ratios for Apple Inc."
+ws["A1"] = f"{company_name} Financial Ratios"
 ws["A1"].font = Font(size=14, bold=True, color="1F4E78")
 ws["A1"].alignment = Alignment(horizontal="center")
 ws["A1"].fill = PatternFill(start_color="D9E1F2", end_color="D9E1F2", fill_type="solid")
@@ -93,7 +96,7 @@ for cell in ws[1]:
     # Ensure the year headers are strings for the table
 
 
-table = Table(displayName="AppleRatios", 
+table = Table(displayName=f"{ticker}Ratios", 
               ref=f"A1:E{ws.max_row}") 
  # Adjust the range as needed
 
@@ -106,8 +109,8 @@ style = TableStyleInfo(name="TableStyleMedium9",
 
 table.tableStyleInfo = style 
 
-if "AppleRatios" in ws.tables:
-    del ws.tables["AppleRatios"] 
+if f"{ticker}Ratios" in ws.tables:
+    del ws.tables[f"{ticker}Ratios"] 
     # Remove existing table if it exists to avoid duplication
 
 
@@ -131,7 +134,7 @@ for row in ws.iter_rows(min_row=2):
         else:
             cell.number_format = "0.00"
 
-wb.save("data/processed/apple_info.xlsx")
+wb.save(excel_path)
 
 
 print(ratio_table)
