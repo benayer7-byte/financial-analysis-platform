@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 from openpyxl import load_workbook
 
-company_name = "Apple"
-ticker = "AAPL"
+company_name = "Microsoft"
+ticker = "MSFT"
 csv_path = f"data/raw/{ticker.lower()}.csv"
 excel_path = f"data/processed/{ticker.lower()}_info.xlsx"
 

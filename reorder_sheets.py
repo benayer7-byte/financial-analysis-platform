@@ -1,7 +1,7 @@
 from openpyxl import load_workbook
 
-company_name = "Apple"
-ticker = "AAPL"
+company_name = "Microsoft"
+ticker = "MSFT"
 excel_path = f"data/processed/{ticker.lower()}_info.xlsx"
 
 wb = load_workbook(excel_path)

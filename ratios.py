@@ -3,8 +3,8 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
-company_name = "Apple"
-ticker = "AAPL"
+company_name = "Microsoft"
+ticker = "MSFT"
 csv_path = f"data/raw/{ticker.lower()}.csv"
 excel_path = f"data/processed/{ticker.lower()}_info.xlsx"
 

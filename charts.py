@@ -3,8 +3,8 @@ from openpyxl import load_workbook
 from openpyxl.chart import LineChart, Reference
 from openpyxl.chart.layout import Layout, ManualLayout
 
-company_name = "Apple"
-ticker = "AAPL"
+company_name = "Microsoft"
+ticker = "MSFT"
 csv_path = f"data/raw/{ticker.lower()}.csv"
 excel_path = f"data/processed/{ticker.lower()}_info.xlsx"
 

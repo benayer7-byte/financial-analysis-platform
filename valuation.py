@@ -3,8 +3,8 @@ from openpyxl import load_workbook
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.table import Table, TableStyleInfo
 
-company_name = "Apple"
-ticker = "AAPL"
+company_name = "Microsoft"
+ticker = "MSFT"
 csv_path = f"data/raw/{ticker.lower()}.csv"
 excel_path = f"data/processed/{ticker.lower()}_info.xlsx"
 
@@ -69,8 +69,11 @@ table = Table(displayName=f"{ticker}Valuation", ref=f"A1:E{ws.max_row}")
 style = TableStyleInfo(name="TableStyleMedium9", showFirstColumn=False,
                        showLastColumn=False, showRowStripes=True, showColumnStripes=False)
 table.tableStyleInfo = style
-if f"{ticker}Valuation" in ws.tables:
-    del ws.tables[f"{ticker}Valuation"]
+
+for sheet in wb.worksheets:
+    if f"{ticker}Valuation" in sheet.tables:
+        del sheet.tables[f"{ticker}Valuation"]
+
 ws.add_table(table)
 
 for row in ws.iter_rows(min_row=2):
