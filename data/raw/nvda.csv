@@ -1,0 +1,5 @@
+company_name,ticker,fiscal_year,revenue,net_income,operating_cash_flow,capital_expenditures,current_assets,current_liabilities,long_term_debt,total_assets,total_liabilities,shareholders_equity,diluted_weighted_average_shares,diluted_eps,stock_price
+NVIDIA,NVDA,2022,26914,9752,9108,976,28829,4335,10946,44187,17575,26612,25350,0.39,22.77
+NVIDIA,NVDA,2023,26974,4368,5641,1833,23073,6563,9703,41182,19081,22101,25070,0.17,20.32
+NVIDIA,NVDA,2024,60922,29760,28090,1069,44345,10631,8459,65728,22750,42978,24940,1.19,60.92
+NVIDIA,NVDA,2025,130497,72880,64089,3236,80126,18047,8463,111601,32274,79327,24804,2.94,142.41

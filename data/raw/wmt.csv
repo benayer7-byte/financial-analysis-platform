@@ -1,0 +1,5 @@
+company_name,ticker,fiscal_year,revenue,net_income,operating_cash_flow,capital_expenditures,current_assets,current_liabilities,long_term_debt,total_assets,total_liabilities,shareholders_equity,diluted_weighted_average_shares,diluted_eps,stock_price
+Walmart,WMT,2022,572754,13673,24181,13106,81070,87379,34864,244860,152969,83253,8415,1.6233,44.06
+Walmart,WMT,2023,611289,11680,28841,16857,75655,92198,34649,243197,159206,76693,8202,1.42,45.94
+Walmart,WMT,2024,648125,15511,35726,20606,76877,92415,36132,252399,161828,83861,8108,1.91,53.7
+Walmart,WMT,2025,680985,19436,36443,23783,79458,96584,33401,260823,163131,91013,8081,2.41,96.61
